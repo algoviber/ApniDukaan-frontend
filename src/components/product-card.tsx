@@ -1,6 +1,5 @@
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useAllReviewsQuery } from "../redux/api/reviewApi";
 import { CartItem } from "../types/types";
 
 type ProductProps={
@@ -21,15 +20,7 @@ const ProductCard = ({
   handler,
 }:ProductProps) => {
 
-  const {data} = useAllReviewsQuery(String(productId));
 
-  // let avgRate = 0;
-
-  // if (data && data.reviews.length > 0) {
-  //   const totalRating = data.reviews.reduce((acc, review) => acc + review.rating, 0);
-  //   const numReviews = data.reviews.length;
-  //   avgRate = totalRating / numReviews;
-  // }
 
   return (
     <Link to={`/product/${productId}`} className="product-card">
