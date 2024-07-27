@@ -23,13 +23,13 @@ const ProductCard = ({
 
   const {data} = useAllReviewsQuery(String(productId));
 
-  let avgRate = 0;
+  // let avgRate = 0;
 
-  if (data && data.reviews.length > 0) {
-    const totalRating = data.reviews.reduce((acc, review) => acc + review.rating, 0);
-    const numReviews = data.reviews.length;
-    avgRate = totalRating / numReviews;
-  }
+  // if (data && data.reviews.length > 0) {
+  //   const totalRating = data.reviews.reduce((acc, review) => acc + review.rating, 0);
+  //   const numReviews = data.reviews.length;
+  //   avgRate = totalRating / numReviews;
+  // }
 
   return (
     <Link to={`/product/${productId}`} className="product-card">
