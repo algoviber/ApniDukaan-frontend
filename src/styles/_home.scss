@@ -1,0 +1,285 @@
+
+
+.home {
+    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    > section {
+        width: 100%;
+        height: 18.75rem;
+        margin: auto;
+        margin-top: -2rem;
+        margin-bottom: 1rem;
+        background: url("../assets/cover.jpg") no-repeat center / cover;
+        display: flex;
+        align-items: last baseline;
+        justify-content: center;
+    }
+
+    .searching {
+        @include inputStyle(70%);
+        border-radius: 5px;
+        margin: 1rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+
+    .loc-icon {
+        font-size: 48px;
+        margin-left: 10px;
+        color: aliceblue;
+    }
+
+    .locate {
+        @include inputStyle(60%, 1rem, white, 1px solid rgba(154, 154, 154, 0.38));
+        border-radius: 10px;
+        margin-left: 1rem;
+        font-size: medium;
+        height: auto;
+        opacity: 70%;
+    }
+
+    .search-shops {
+        @include inputStyle(100%, 1rem, white, 1px solid rgba(154, 154, 154, 0.38));
+        font-size: medium;
+        border-radius: 10px;
+        opacity: 70%;
+    }
+
+    > h1 {
+        @include heading(1px);
+        margin-top: 0rem;
+        @include flex(row, space-between, center);
+    }
+
+    .findmore {
+        font-size: 1rem;
+    }
+
+    > main {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .no-shops {
+        width: 100%;
+        height: 300px;
+        font-size: xx-large;
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    article {
+        @include flex;
+        
+        > button {
+            @include flex;
+            @include btn(0.5rem 1rem, $color3, $color1);
+            border-radius: 10px;
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+                color: $color2;
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 1rem 3%;
+        
+        .searching {
+            @include inputStyle(100%);
+        }
+
+        .locate, .search-shops {
+            font-size: small;
+        }
+
+        > section {
+            height: 15rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 1rem 2%;
+
+        .searching {
+            @include inputStyle(100%);
+            margin: 0.5rem;
+            height: 50px;
+        }
+
+        .loc-icon {
+            font-size: 36px;
+        }
+
+        .locate, .search-shops {
+            font-size: small;
+        }
+
+        > section {
+            height: 12rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 0.5rem 1%;
+
+        .searching {
+            @include inputStyle(100%);
+            margin: 0.5rem 0;
+            height: 40px;
+        }
+
+        .loc-icon {
+            font-size: 24px;
+        }
+
+        .locate, .search-shops {
+            font-size: small;
+        }
+
+        > section {
+            height: 10rem;
+        }
+    }
+}
+
+.product-card{
+    width: 18.75rem;
+    //height: 22rem;
+    padding: 0.5rem;
+    flex: none;
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.247);
+    @include flex(column,flex-start,center,4px);
+    position: relative;
+    background-color: white;
+
+    &:hover >div{
+        opacity: 1;
+    }
+
+    img{
+        @include square(calc(18.75rem - 8rem));
+        width: 100%;
+        object-fit: contain;
+    }
+
+    span{
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    >div{
+        opacity: 0;
+        position: absolute;
+        @include square(100%);
+        top: 0;
+        left: 0;
+        background-color: #0000006b;
+        @include flex;
+        button{
+            @include flex;
+            @include square(3rem);
+            border-radius: 100%;
+            border: none;
+            background-color: $color3;
+            cursor: pointer;
+            columns: $color1;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            &:hover{
+                rotate: 20deg;
+            }
+        }
+    }
+}
+
+
+.shop-card {
+    width: 25.75rem;
+    padding: 0.5rem;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.247);
+    flex: none;
+    @include flex(column, flex-start, center, 4px);
+    position: relative;
+    background-color: white;
+
+    &:hover {
+        border: 2px solid black;
+        border-radius: 10%;
+    }
+
+    img {
+        @include square(calc(18.75rem - 8rem));
+        width: 100%;
+        object-fit: contain;
+        margin: 1rem;
+    }
+
+    > div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    span {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-right: auto;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        justify-content: space-between;
+        width: 2rem;
+        margin-right: 6px;
+    }
+
+    > div {
+        font-size: large;
+    }
+
+    @media (max-width: 1200px) {
+        width: 20rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        padding: 0.5rem;
+        
+        span {
+            font-size: 1.2rem;
+        }
+
+        .rating {
+            font-size: 0.9rem;
+        }
+
+        > div {
+            font-size: medium;
+        }
+    }
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}

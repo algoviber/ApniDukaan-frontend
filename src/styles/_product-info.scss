@@ -1,0 +1,210 @@
+
+
+
+.product-info {
+    padding: 2rem;
+    @include flex(row, flex-start, stretch, 2rem);
+    min-height: calc(100vh - 6.5vh);
+
+    > aside {
+        min-width: 30rem;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.247);
+        @include flex(column, flex-start, stretch, 0.5rem);
+        max-height: 85vh;
+        position: sticky;
+        top: 0;
+
+        > section {
+            width: 100%; /* or any other width you need */
+            height: 70%; /* or any other height you need */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        > button {
+            width: 80%;
+            margin: auto;
+            height: 3rem;
+            @include btn(unset, rgb(62, 125, 242), white);
+            @include flex;
+            border: 1px solid rgb(62, 125, 242);
+            border-radius: 5px;
+            font-size: 1.05rem;
+        }
+
+        > div {
+            display: inline-grid;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+        span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+    }
+
+    > main {
+        width: 100%;
+        padding: 0 2rem;
+        max-height: 90vh;
+        overflow-y: auto;
+
+        .rate {
+            display: flex;
+            align-items: center;
+        }
+
+        .add-review {
+            display: flex;
+            justify-content: center;
+            display: inline-block;
+
+            > button {
+                width: 30%;
+                margin: auto;
+                height: 3rem;
+                @include btn(unset, rgb(53, 46, 48), white);
+                @include flex;
+                border: 1px solid rgb(69, 3, 3);
+                border-radius: 5px;
+                font-size: 1.05rem;
+            }
+
+            form {
+                margin-top: 20px;
+                width: 100%;
+                display: inline-grid;
+
+                textarea {
+                    height: 100px;
+                    background-color: #fff;
+                    width: 100%;
+                    padding: 5px 7px;
+                    resize: vertical;
+                    display: inline-block;
+                }
+
+                button {
+                    width: 10%;
+                    margin: auto;
+                    height: 2rem;
+                    @include btn(unset, rgb(53, 46, 48), white);
+                    border: 1px solid rgb(69, 3, 3);
+                    border-radius: 5px;
+                    font-size: 1.05rem;
+                }
+            }
+        }
+
+        > div {
+            margin: 1rem 0 2rem 0;
+            width: 100%;
+            font-size: large;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 400;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 1rem;
+        flex-direction: column;
+        
+        > aside {
+            min-width: 100%;
+            max-height: none;
+            position: static;
+            box-shadow: none;
+            margin-bottom: 2rem;
+        }
+
+        > main {
+            padding: 0;
+            max-height: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+        flex-direction: column;
+
+        > aside {
+            min-width: 100%;
+            max-height: none;
+            position: static;
+            box-shadow: none;
+            margin-bottom: 1rem;
+
+            > button {
+                width: 100%;
+            }
+        }
+
+        > main {
+            padding: 0;
+            max-height: none;
+
+            .add-review > button {
+                width: 100%;
+            }
+
+            .add-review form button {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 0.5rem;
+        
+        > aside {
+            min-width: 100%;
+            max-height: none;
+            position: static;
+            box-shadow: none;
+            margin-bottom: 1rem;
+
+            > button {
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+
+        > main {
+            padding: 0;
+            max-height: none;
+
+            .add-review > button {
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            .add-review form button {
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            .add-review form textarea {
+                height: 80px;
+            }
+        }
+    }
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+
